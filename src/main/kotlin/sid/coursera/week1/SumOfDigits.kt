@@ -1,8 +1,10 @@
 package sid.coursera.week1
 
-import java.util.*
 
-class SumOfDigits{
-    fun sumOfDigits(a: Int, b: Int) = a+b
+class SumOfDigits(val a: Int, val b: Int): Problem<Int> {
+    private fun sumOfDigits() = a + b
+    override fun solve(): Int {
+        return sumOfDigits()
+    }
 }
 

@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Assertions.*
 internal class SumOfDigitsKtTest {
 
     @org.junit.jupiter.api.Test
-    fun `Adding 1 and 3 should give 4`() {
-        val sum = SumOfDigits()
-        assertEquals(5, sum.sumOfDigits(1,4))
+    fun `Adding 1 and 4 should give 5`() {
+        val problem = SumOfDigits(1, 4)
+        assertEquals(5, problem.solve())
     }
 }
