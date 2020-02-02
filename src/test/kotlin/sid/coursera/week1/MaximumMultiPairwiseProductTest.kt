@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
 import java.lang.IllegalArgumentException
 
-internal class MaximumMultiPairwiseProductTest {
+internal class MaximumMultiPairwiseProductTest () {
 
     @Test
     fun `Maximum Pairwise Product`() {
