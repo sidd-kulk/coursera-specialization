@@ -4,33 +4,43 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import sid.coursera.week1.MaximumMultiPairwiseProduct
 import sid.coursera.week1.Problem
+import java.util.*
+import kotlin.system.measureNanoTime
+import kotlin.system.measureTimeMillis
+
+val TAKE = 2
 
 class MaximumMultiPairwiseProductStressTest {
     class BasicTest {
         @Test
         fun `Maximum Pairwise Product`() {
-            val problem = MaximumMultiPairwiseProductAlternate(arrayOf(2,1,5,4,7,0), 2)
+            val problem = MaximumMultiPairwiseProductAlternate(arrayOf(2,1,5,4,7,0), TAKE)
             assertEquals(35, problem.solve());
         }
 
         @Test
         fun `Maximum Pairwise Product Large numbers`() {
-            val problem = MaximumMultiPairwiseProductAlternate(arrayOf(1000000, 3000000), 2)
+            val problem = MaximumMultiPairwiseProductAlternate(arrayOf(1000000, 3000000), TAKE)
             assertEquals(3000000000000, problem.solve());
         }
     }
 
     @Test
     fun `stress Test`(){
-        fun stressTestStep(input: Array<Int>): Boolean {
-            val mainSolution = MaximumMultiPairwiseProduct(input, 2)
-            val alternateSolution = MaximumMultiPairwiseProductAlternate(input, 2)
+        fun stressTestStep(input: Array<Int>, withPerf: Boolean = false): Boolean {
 
-            return mainSolution.solve().equals(alternateSolution.solve())
+            val problemWithMainstreamSolution = MaximumMultiPairwiseProduct(input, TAKE)
+            val problemWithAlternateSolution = MaximumMultiPairwiseProductAlternate(input, TAKE)
+
+            if(withPerf){
+                checkPerf(input)
+            }
+
+            return problemWithMainstreamSolution.solve().equals(problemWithAlternateSolution.solve())
         }
 
-        for (i in 0..50) {
-            val input = randomInput()
+        val input = randomInput()
+        for (i in 0..50000) {
             if(!stressTestStep(input)){
                 println("Test - $i failed with input: $input")
                 break
@@ -38,6 +48,18 @@ class MaximumMultiPairwiseProductStressTest {
                 continue
             }
         }
+
+    }
+
+    private fun checkPerf(input: Array<Int>){ // Call on demand
+        val problemWithMainstreamSolution = MaximumMultiPairwiseProduct(input, TAKE)
+        val problemWithAlternateSolution = MaximumMultiPairwiseProductAlternate(input, TAKE)
+
+        val mainstreamSolutionTime = measureNanoTime { problemWithMainstreamSolution.solve() }
+        val alternateSolutionTime = measureNanoTime { problemWithAlternateSolution.solve() }
+
+        // failing for some reason
+        require(mainstreamSolutionTime < alternateSolutionTime) {"$mainstreamSolutionTime and $alternateSolutionTime for ${input.contentToString()}"}
     }
 
 
