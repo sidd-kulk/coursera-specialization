@@ -2,3 +2,7 @@
 .idea/
 gradle/
 build/
+.project
+.settings/
+.vscode/
+coursera-specialization.iml
