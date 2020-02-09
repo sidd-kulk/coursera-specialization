@@ -41,7 +41,7 @@ class MaximumMultiPairwiseProductStressTest {
 
         val input = randomInput()
         for (i in 0..50000) {
-            assert(!stressTestStep(input), () -> "Stress Test Failed with index $i and input $input")
+            assert(stressTestStep(input)) { "Stress Test Failed with index $i and input ${input[i]}" }
         }
 
     }
