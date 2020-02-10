@@ -8,7 +8,7 @@ import java.util.*
 import kotlin.system.measureNanoTime
 import kotlin.system.measureTimeMillis
 
-val TAKE = 2
+const val TAKE = 2
 
 class MaximumMultiPairwiseProductStressTest {
     class BasicTest {
@@ -39,8 +39,8 @@ class MaximumMultiPairwiseProductStressTest {
             return problemWithMainstreamSolution.solve().equals(problemWithAlternateSolution.solve())
         }
 
-        val input = randomInput()
         for (i in 0..50000) {
+            val input = randomInput()
             assert(stressTestStep(input)) { "Stress Test Failed with index $i and input ${input[i]}" }
         }
 
