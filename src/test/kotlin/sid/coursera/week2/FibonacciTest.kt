@@ -2,6 +2,7 @@ package sid.coursera.week2
 
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
+import kotlin.system.measureNanoTime
 
 internal class FibonacciTest {
     @Test
@@ -51,7 +52,26 @@ internal class FibonacciTest {
 internal class PerformanceTest {
     @Test
     fun `Performance Testing`(){
-        // TODO
+        val fibonacciFirstNTimeList = mutableListOf<Long>()
+
+        val TIMES = 100
+        repeat(TIMES) {
+            fibonacciFirstNTimeList.add(measureNanoTime { fibonacciFirstN((5..20).random()) })
+        }
+
+        println("Average time for fibonacciFirstN = ${fibonacciFirstNTimeList.average()}")
+
+        val fibonacciTillList = mutableListOf<Long>()
+        repeat(TIMES) {
+            fibonacciTillList.add(measureNanoTime { fibonacciTill((10000..20000).random()) })
+        }
+
+        val assertionsList = mutableListOf<Boolean>()
+        fibonacciFirstNTimeList.forEachIndexed{ index, value ->
+             assertionsList.add(value > fibonacciTillList[index])
+        }
+
+        assertionsList.all { true }
 
     }
 }

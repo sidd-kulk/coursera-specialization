@@ -1,7 +1,5 @@
 package sid.coursera.week2
 
-
-
 fun fibonacciFirstN(firstN: Int): Int {
     val cache = mutableMapOf<Int, Int>()
 
