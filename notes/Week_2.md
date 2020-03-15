@@ -7,4 +7,4 @@
 4.  This course will focus on clearly defined problems that may be difficult to do efficiently.  Not the AI problems.
 5.  Fibonacci Problems
 6.  GCD problems:
-    a.  
+    a.  GCD are important in cryptography problems.  
