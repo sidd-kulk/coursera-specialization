@@ -49,7 +49,7 @@ internal class FibonacciTest {
 
 }
 
-internal class PerformanceTest {
+internal class PerformanceTestFibonacci {
     @Test
     fun `Performance Testing`(){
         val fibonacciFirstNTimeList = mutableListOf<Long>()
