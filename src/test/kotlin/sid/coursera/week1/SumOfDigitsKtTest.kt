@@ -1,7 +1,7 @@
 package sid.coursera.week1
 
 import org.junit.jupiter.api.Assertions.*
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.*
 
 internal class SumOfDigitsKtTest {
 

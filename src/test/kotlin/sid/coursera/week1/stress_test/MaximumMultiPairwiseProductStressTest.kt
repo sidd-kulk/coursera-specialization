@@ -15,13 +15,13 @@ class MaximumMultiPairwiseProductStressTest {
         @Test
         fun `Maximum Pairwise Product`() {
             val problem = MaximumMultiPairwiseProductAlternate(arrayOf(2,1,5,4,7,0), TAKE)
-            assertEquals(35, problem.solve());
+            assertEquals(35, problem.solve())
         }
 
         @Test
         fun `Maximum Pairwise Product Large numbers`() {
             val problem = MaximumMultiPairwiseProductAlternate(arrayOf(1000000, 3000000), TAKE)
-            assertEquals(3000000000000, problem.solve());
+            assertEquals(3000000000000, problem.solve())
         }
     }
 
@@ -62,7 +62,7 @@ class MaximumMultiPairwiseProductStressTest {
 
 private class MaximumMultiPairwiseProductAlternate(private val array: Array<Int>, take: Int): Problem <Long> {
     override fun solve(): Long {
-        var product = 0L;
+        var product = 0L
         for ((i, x) in array.withIndex()){
             for((j, y) in array.drop(i+1).withIndex()){
                 val temp = x.toLong() * y.toLong()
