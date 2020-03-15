@@ -51,7 +51,7 @@ internal class FibonacciTest {
 
 internal class PerformanceTestFibonacci {
     @Test
-    fun `Performance Testing`(){
+    fun `Performance Testing`() {
         val fibonacciFirstNTimeList = mutableListOf<Long>()
 
         val TIMES = 100
@@ -67,11 +67,11 @@ internal class PerformanceTestFibonacci {
         }
 
         val assertionsList = mutableListOf<Boolean>()
-        fibonacciFirstNTimeList.forEachIndexed{ index, value ->
-             assertionsList.add(value > fibonacciTillList[index])
+        fibonacciFirstNTimeList.forEachIndexed { index, value ->
+            assertionsList.add(value > fibonacciTillList[index])
         }
 
-        assertionsList.all { true }
+        assertTrue(assertionsList.all { true })
 
     }
 }
