@@ -8,6 +8,8 @@ class UnionFind (private val n: Int) {
     private var maxCount = n + 1;
 
     fun union(p: Int, q: Int) {
+        if(connected(p, q)) { return }
+
         val valueToChange = mappingArray[p]
         val valuesToChange = mappingArray[q]
         for (i in mappingArray.indices) {
