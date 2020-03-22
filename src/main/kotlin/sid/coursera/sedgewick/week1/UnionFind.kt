@@ -5,9 +5,13 @@ import java.util.*
 class UnionFind (private val n: Int) {
 
     private var mappingArray = IntArray(n) { it }
-    private var maxCount = n + 1;
+
+    private fun isIncorrectIndex(p: Int, q: Int): Boolean {
+         return p >= n || q >= n
+    }
 
     fun union(p: Int, q: Int) {
+        if(isIncorrectIndex(p, q)) { return }
         if(connected(p, q)) { return }
 
         val valueToChange = mappingArray[p]
@@ -28,6 +32,8 @@ class UnionFind (private val n: Int) {
     }
 
     fun connected(p: Int, q: Int): Boolean {
+        if(isIncorrectIndex(p, q)) { return false }
+        
         return mappingArray[p] == mappingArray[q]
     }
 

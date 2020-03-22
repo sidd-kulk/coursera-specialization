@@ -20,5 +20,8 @@ internal class UnionFindTest {
         assert(unionFind.connected(1,2))
         assert(unionFind.connected(1,3))
         assertFalse(unionFind.connected(1,4))
+
+        // exception condition, but should do nothing
+        unionFind.union(10,40)
     }
 }
