@@ -11,7 +11,10 @@ class QuickUnion(private val n: Int, private val weighted: Boolean = false) {
 
     private fun root(i: Int): Int {
         var j = i
-        while(j != mappingArray[j]) j = mappingArray[j]
+        while(j != mappingArray[j]) {
+            mappingArray[i] = mappingArray[mappingArray[i]] // Path compression
+            j = mappingArray[j]
+        }
         return j
     }
 
