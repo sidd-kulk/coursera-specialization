@@ -1,16 +1,15 @@
 package sid.coursera.sedgewick.week1
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.Union
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 
-internal class UnionFindTest {
+internal class QuickFindTest {
 
     @Test
     fun `should create union and test connections`() {
         val size = 5
-        val unionFind = UnionFind(size)
+        val unionFind = QuickFind(size)
 
         unionFind.union(1,2)
         unionFind.union(2,3)

@@ -1,8 +1,6 @@
 package sid.coursera.sedgewick.week1
 
-import java.util.*
-
-class UnionFind (private val n: Int) {
+class QuickFind (private val n: Int) {
 
     private var mappingArray = IntArray(n) { it }
 
@@ -36,9 +34,4 @@ class UnionFind (private val n: Int) {
         
         return mappingArray[p] == mappingArray[q]
     }
-
-
-//    class Node(private val t: Int) {
-//
-//    }
 }
