@@ -25,7 +25,7 @@ class QuickUnion(private val n: Int, private val weighted: Boolean = false) {
     fun union(p: Int, q: Int) {
         return if(!weighted){
             unweightedUnion(p, q)
-        }else {
+        } else {
             weightedUnion(p, q)
         }
     }
